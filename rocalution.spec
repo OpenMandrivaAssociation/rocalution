@@ -19,6 +19,7 @@ BuildRequires:	rocsparse-devel
 BuildRequires:	rocblas-devel
 BuildRequires:	rocprim-devel
 BuildRequires:	openmp-devel
+BuildRequires:	cmake(AMDDeviceLibs)
 BuildRequires:	clang >= %{rocm_llvm_maj_ver}
 
 %description
@@ -48,6 +49,12 @@ export CXXFLAGS
 	-DOpenMP_CXX_FLAGS=-fopenmp \
 	-DOpenMP_CXX_LIB_NAMES=omp \
 	-DOpenMP_omp_LIBRARY=%{_libdir}/libomp.so \
+	-DCMAKE_HIP_COMPILER=clang++ \
+	-DCMAKE_HIP_FLAGS="--rocm-path=%{_prefix} --rocm-device-lib-path=%{_libdir}/amdgcn/bitcode" \
+	-DCMAKE_HIP_ARCHITECTURES="%{rocm_gpu_targets}" \
+	-DUSE_HIPCXX=ON \
+	-DSUPPORT_HIP=ON \
+	-DSUPPORT_MPI=OFF \
 	-DBUILD_CLIENTS_TESTS=OFF \
 	-DBUILD_CLIENTS_BENCHMARKS=OFF \
 	-DBUILD_CLIENTS_SAMPLES=OFF \
