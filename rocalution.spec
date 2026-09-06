@@ -18,6 +18,7 @@ BuildRequires:	rocm-hip-devel
 BuildRequires:	rocsparse-devel
 BuildRequires:	rocblas-devel
 BuildRequires:	rocprim-devel
+BuildRequires:	cmake(rocrand)
 BuildRequires:	openmp-devel
 BuildRequires:	cmake(AMDDeviceLibs)
 BuildRequires:	clang >= %{rocm_llvm_maj_ver}
@@ -65,6 +66,7 @@ export CXXFLAGS
 
 %install
 %ninja_install -C build
+rm -f %{buildroot}%{_docdir}/rocalution/LICENSE.md
 
 %files
 %license LICENSE.md
