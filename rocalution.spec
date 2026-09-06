@@ -7,7 +7,7 @@ Summary:	ROCm iterative sparse solver library
 License:	MIT
 Group:		System/Libraries
 URL:		https://github.com/ROCm/rocm-libraries
-Source0:	%{rocm_libraries_source rocalution}
+Source0:	https://github.com/ROCm/rocm-libraries/releases/download/therock-10.0/rocalution.tar.gz#/rocalution-%{version}.tar.gz
 
 BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
@@ -50,7 +50,7 @@ export CXXFLAGS
 	-DROCM_PATH=%{_prefix} \
 	-DCMAKE_PREFIX_PATH=%{_prefix} \
 	-G Ninja
-%ninja_build -C build
+%ninja_build
 
 %install
 %ninja_install -C build
