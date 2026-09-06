@@ -18,6 +18,7 @@ BuildRequires:	rocm-hip-devel
 BuildRequires:	rocsparse-devel
 BuildRequires:	rocblas-devel
 BuildRequires:	rocprim-devel
+BuildRequires:	openmp-devel
 BuildRequires:	clang >= %{rocm_llvm_maj_ver}
 
 %description
@@ -44,6 +45,9 @@ export CXXFLAGS
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_CXX_COMPILER=hipcc \
 	-DCMAKE_CXX_FLAGS="$CXXFLAGS" \
+	-DOpenMP_CXX_FLAGS=-fopenmp \
+	-DOpenMP_CXX_LIB_NAMES=omp \
+	-DOpenMP_omp_LIBRARY=%{_libdir}/libomp.so \
 	-DBUILD_CLIENTS_TESTS=OFF \
 	-DBUILD_CLIENTS_BENCHMARKS=OFF \
 	-DBUILD_CLIENTS_SAMPLES=OFF \
