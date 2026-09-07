@@ -8,6 +8,8 @@ License:	MIT
 Group:		System/Libraries
 URL:		https://github.com/ROCm/rocm-libraries
 Source0:	https://github.com/ROCm/rocm-libraries/releases/download/therock-10.0/rocalution.tar.gz#/rocalution-%{version}.tar.gz
+# HIP backend uses host symbols; a separate hip DSO cannot link with --no-undefined
+Patch0:		0001-fold-hip-objects-into-librocalution.patch
 
 BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
