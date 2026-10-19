@@ -1,13 +1,13 @@
-# Iterative sparse solvers. TheRock 10.0.
+# Iterative sparse solvers. TheRock 10.1.
 
 Name:		rocalution
-Version:	10.0.0
+Version:	10.1.0
 Release:	1
 Summary:	ROCm iterative sparse solver library
 License:	MIT
 Group:		System/Libraries
 URL:		https://github.com/ROCm/rocm-libraries
-Source0:	https://github.com/ROCm/rocm-libraries/releases/download/therock-10.0/rocalution.tar.gz#/rocalution-%{version}.tar.gz
+Source0:	https://github.com/ROCm/rocm-libraries/releases/download/therock-10.1/rocalution.tar.gz#/rocalution-%{version}.tar.gz
 
 BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
